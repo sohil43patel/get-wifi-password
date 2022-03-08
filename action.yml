@@ -1,0 +1,16 @@
+# action.yml
+name: 'Get Wifi password'
+description: 'Get the wifi password for linux/windows platform on connected device'
+inputs:
+  connection-ssid: # ssid of the connection
+    description: 'SSID of the connection whose password to be retrived'
+    required: true
+outputs:
+  password: # password of the connection
+    description: 'Password for the Wifi connection'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${ {inputs.connection-ssid} }
+
